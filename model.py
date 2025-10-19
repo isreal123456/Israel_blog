@@ -16,8 +16,8 @@ class Project(Base):
     image = Column(String)
     github_link = Column(String)
     live_link = Column(String)
-
-
-class CommentModel(BaseModel):
-    __tablename__ = 'comments'
-    id = Column(Integer, primary_key=True)
+#
+#
+# class CommentModel(BaseModel):
+#     __tablename__ = 'comments'
+#     id = Column(Integer, primary_key=True)
