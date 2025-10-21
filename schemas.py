@@ -45,3 +45,8 @@ class ProjectsModelList(BaseModel):
     github_link: Optional[str]
     live_link: Optional[str]
     user: str
+
+
+
+class CommentModel(BaseModel):
+    message: str

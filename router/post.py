@@ -36,7 +36,7 @@ def create_post(request: schemas.ProjectsModelCreate, db: Session = Depends(get_
 
 
 @router.get('/blog/{id}', response_model=schemas.ProjectsModelList)
-def show_post(id: int, db: Session = Depends(get_db)):
+def show_post(id: int, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     post = db.query(Project).filter(Project.id == id).first()
     if not post:
         raise HTTPException(status_code=404, detail="post not found")
@@ -54,7 +54,7 @@ def show_post(id: int, db: Session = Depends(get_db)):
 
 
 @router.get('/blog', response_model=List[schemas.ProjectsModelList])
-def posts(db: Session = Depends(get_db)):
+def posts(db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     posts = db.query(Project).all()
     if not posts:
         raise HTTPException(status_code=404, detail="posts not found")
@@ -75,7 +75,7 @@ def posts(db: Session = Depends(get_db)):
     return output
 
 @router.put('/update/{id}', response_model=schemas.ProjectsModel)
-def update_blog(id: int, request: schemas.ProjectsModelCreate, db: Session = Depends(get_db)):
+def update_blog(id: int, request: schemas.ProjectsModelCreate, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     post = db.query(Project).filter(Project.id == id).first()
     if not post:
         raise HTTPException(status_code=404, detail="post not found")
@@ -91,7 +91,7 @@ def update_blog(id: int, request: schemas.ProjectsModelCreate, db: Session = Dep
 
 
 @router.delete('/delete/{id}')
-def delete_post(id: int, db: Session = Depends(get_db)):
+def delete_post(id: int, db: Session = Depends(get_db), current_user=Depends(get_current_user)):
     post = db.query(Project).filter(Project.id == id).first()
     if not post:
         raise HTTPException(status_code=404, detail="post not found")
