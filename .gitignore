@@ -1,7 +1,88 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+
+# Virtual environment
+env/
+venv/
 .venv/
 
+# Environment variables
+.env
+*.env
+
+# Logs and debug
+*.log
+logs/
+*.pid
+*.seed
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Build and distribution artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+MANIFEST
+
+# PyInstaller
+*.spec
+
+# IDE / Editor files
+.vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
-blog.db
+# OS-specific files
+.DS_Store
+Thumbs.db
 
+# Database files (optional)
+*.db
+*.sqlite3
 
+# Static files (optional)
+staticfiles/
+media/
+
+# Docker
+*.pid
+*.tar
+*.gz
+.dockerignore
+
+# Jupyter notebooks
+.ipynb_checkpoints
+
+# VS Code Python environment
+.python-version
+
+# Pyre type checker
+.pyre/
+
+# Mypy
+.mypy_cache/
+
+# Ruff or Black
+ruff_cache/
+.black_cache/
+
+# FastAPI specific (optional)
+# Uvicorn access/error logs
+uvicorn*.log
