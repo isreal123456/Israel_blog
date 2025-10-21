@@ -50,3 +50,7 @@ class ProjectsModelList(BaseModel):
 
 class CommentModel(BaseModel):
     message: str
+
+class CommentsModelList(BaseModel):
+    username: str
+    message: str
