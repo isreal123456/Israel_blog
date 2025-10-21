@@ -1,9 +1,16 @@
-from pydantic import BaseModel
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime, func
-from sqlalchemy.orm import relationship
+from sqlalchemy import Integer, Column, String, Text, ForeignKey
+from sqlalchemy.orm import relationship, backref
 from database import Base
 
+class User(Base):
+    __tablename__ = 'users'
 
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String(255), nullable=False)
+    email = Column(String(255), unique=True, index=True, nullable=False)
+    password = Column(String(255), nullable=False)
+
+    projects = relationship('Project', backref='user')
 
 
 class Project(Base):
@@ -16,8 +23,4 @@ class Project(Base):
     image = Column(String)
     github_link = Column(String)
     live_link = Column(String)
-#
-#
-# class CommentModel(BaseModel):
-#     __tablename__ = 'comments'
-#     id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))

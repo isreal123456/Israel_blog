@@ -1,5 +1,24 @@
 from pydantic import BaseModel, HttpUrl, EmailStr
 from typing import Optional
+
+class User(BaseModel):
+    username: str
+    email: EmailStr
+    password: str
+
+
+
+class Showuser(BaseModel):
+    username: str
+    email: EmailStr
+    class Config():
+        orm_mode = True
+
+class Login(BaseModel):
+    email: EmailStr
+    password: str
+
+
 class ProjectsModel(BaseModel):
     title: str
     description: str
@@ -16,3 +35,13 @@ class ProjectsModelCreate(BaseModel):
     image: Optional[str]
     github_link: Optional[str]
     live_link: Optional[str]
+
+
+class ProjectsModelList(BaseModel):
+    title: str
+    description: str
+    tech_stack: Optional[str]
+    image: Optional[str]
+    github_link: Optional[str]
+    live_link: Optional[str]
+    user: str
