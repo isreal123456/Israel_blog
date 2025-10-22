@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 
-from router import  post,auth,project
+from router import  post,auth,comment
 import model
 from database import engine
 
