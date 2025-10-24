@@ -18,6 +18,18 @@ class Login(BaseModel):
     email: EmailStr
     password: str
 
+class ForgotPassword(BaseModel):
+    email: EmailStr
+
+class ResetPassword(BaseModel):
+    token: str
+    new_password: str
+
+
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password: str
+    confirm_password: str
 
 class ProjectsModel(BaseModel):
     title: str
